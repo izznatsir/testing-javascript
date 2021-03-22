@@ -1,10 +1,11 @@
 export async function test(name, fn) {
   try {
-    await fn()
+    await fn();
 
-    console.log(`[SUCCESS] ${name}`);
-  } catch {
-    console.error(`[FAILED] ${name}`)
+    console.log(`✔ ${name}`);
+  } catch (error) {
+    console.error(`✖ ${name}`);
+    console.error(error);
   }
 }
 
@@ -14,6 +15,6 @@ export function expect(actual) {
       if (actual !== expected) {
         throw new Error(`${actual} is not equal ${expected}`);
       }
-    }
-  }
+    },
+  };
 }
